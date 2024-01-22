@@ -1,0 +1,122 @@
+Lab 1: Write a program to implement McCulloch-Pitts algorithms for realizing the    
+             AND/OR logic functions. 
+ 
+class McCullochPittsNeuron: 
+    def __init__(self, weights, threshold): 
+        self.weights = weights 
+        self.threshold = threshold 
+    def activate(self, inputs): 
+        weighted_sum = sum([inputs[i] * self.weights[i]  
+        for i in range(len(inputs))]) 
+        return 1 if weighted_sum >= self.threshold else 0 
+ 
+# AND Logic Function 
+and_weights = [1, 1] 
+and_threshold = 2 
+and_neuron = McCullochPittsNeuron(and_weights, and_threshold) 
+ 
+# OR Logic Function 
+or_weights = [1, 1] 
+or_threshold = 1 
+or_neuron = McCullochPittsNeuron(or_weights, or_threshold) 
+ 
+# Test AND logic function 
+input_values_and = [(0, 0), (0, 1), (1, 0), (1, 1)] 
+print("AND Logic Function:") 
+for inputs in input_values_and: 
+    output = and_neuron.activate(inputs) 
+    print(f"Input: {inputs}, Output: {output}") 
+ 
+# Test OR logic function 
+input_values_or = [(0, 0), (0, 1), (1, 0), (1, 1)] 
+print("\nOR Logic Function:") 
+for inputs in input_values_or: 
+    output = or_neuron.activate(inputs) 
+    print(f"Input: {inputs}, Output: {output}")
+
+
+    
+
+Lab2: Write a program to implement McCulloch-Pitts algorithms, for  
+            realizing the ANDNOT logic function. 
+class McCullochPittsNeuron: 
+    def __init__(self, weights, threshold): 
+        self.weights = weights 
+        self.threshold = threshold 
+ 
+    def activate(self, inputs): 
+        activation = sum([inputs[i] * self.weights[i] for i in range(len(inputs))]) 
+        return 1 if activation >= self.threshold else 0 
+ 
+# ANDNOT logic function 
+def andnot_logic_gate(inputs): 
+    weights = [1, -1] 
+    threshold = 1 
+    neuron = McCullochPittsNeuron(weights, threshold) 
+    return neuron.activate(inputs) 
+ 
+ 
+# Test ANDNOT logic gate 
+print("ANDNOT Logic Gate:") 
+print("0 ANDNOT 0 =", andnot_logic_gate([0, 0])) 
+print("0 ANDNOT 1 =", andnot_logic_gate([0, 1])) 
+print("1 ANDNOT 0 =", andnot_logic_gate([1, 0])) 
+print("1 ANDNOT 1 =", andnot_logic_gate([1, 1])) 
+
+
+
+
+Lab 2: Write a program to implement McCulloch-Pitts algorithms, for 
+realizing the XOR logic function. 
+ 
+class McCullochPittsNeuron: 
+    def __init__(self, weights, threshold): 
+        self.weights = weights 
+        self.threshold = threshold 
+ 
+    def activate(self, inputs): 
+        weighted_sum = sum([inputs[i] * self.weights[i]  
+        for i in range(len(inputs))]) 
+        return 1 if weighted_sum >= self.threshold else 0 
+ 
+# AND1 Logic Function 
+and_weights1 = [1, -1] 
+and_threshold = 1 
+and_neuron1 = McCullochPittsNeuron(and_weights1, and_threshold) 
+ 
+# AND2 Logic Function 
+and_weights2 = [-1, 1] 
+and_threshold = 1 
+and_neuron2 = McCullochPittsNeuron(and_weights2, and_threshold) 
+ 
+# OR Logic Function 
+or_weights = [1, 1] 
+or_threshold = 1 
+or_neuron = McCullochPittsNeuron(or_weights, or_threshold) 
+ 
+# Test AND logic function 
+input_values_and1 = [(0, 0), (0, 1), (1, 0), (1, 1)] 
+print("AND Logic Function1:") 
+for inputs in input_values_and1: 
+    output = and_neuron1.activate(inputs) 
+    print(f"Input: {inputs}, Output: {output}") 
+     
+# Test AND logic function 
+input_values_and2 = [(0, 0), (0, 1), (1, 0), (1, 1)] 
+print("AND Logic Function2:") 
+for inputs in input_values_and2: 
+    output = and_neuron2.activate(inputs) 
+    print(f"Input: {inputs}, Output: {output}") 
+     
+# Test XOR logic function 
+input_values_xor = [(0, 0), (0, 1), (1, 0), (0, 0)] 
+print("\nOR Logic Function:") 
+for inputs in input_values_xor: 
+    output = or_neuron.activate(inputs) 
+    print(f"Input: {inputs}, Output: {output}") 
+
+
+
+
+    
+ 
